@@ -12,6 +12,7 @@ public class Gunshot : MonoBehaviour
     [SerializeField] GameObject Cross;
 
     public GameObject Mflash;
+    public float totarget;
 
     void Update()
     {
@@ -39,6 +40,9 @@ public class Gunshot : MonoBehaviour
         XCross.SetActive(true);
         Cross.SetActive(false);
         Ammo.M9Ammo -= 1;
+
+        totarget = PlayerCast.targetdistance;
+        
         M9.GetComponent<Animator>().Play("M9shoot");
 
         Mflash.SetActive(true);
