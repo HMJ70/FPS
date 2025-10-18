@@ -38,8 +38,10 @@ public class CharacterPanel : MonoBehaviour {
 		CreateActionButton("Damage");
 		CreateActionButton("Death Reset", "Death");
 
-		cameras = GameObject.FindObjectsOfType<Camera> ();
-		var sort = from s in cameras orderby s.name select s;
+        //cameras = GameObject.FindObjectsOfType<Camera> ();
+        cameras = GameObject.FindObjectsByType<Camera>(FindObjectsSortMode.None);
+
+        var sort = from s in cameras orderby s.name select s;
 
 		foreach (Camera c in sort)
 			CreateCameraButton(c);
