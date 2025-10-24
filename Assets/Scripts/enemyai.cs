@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class enemyai : MonoBehaviour
@@ -5,6 +7,9 @@ public class enemyai : MonoBehaviour
     public string hittag;
     public bool lookingatplayer = false;
     public GameObject soldier;
+    public AudioSource firesound;
+    public bool isfiring = false;
+    public float firerate = 0.5f;
     void Update()
     {
         RaycastHit hit; 
@@ -14,15 +19,25 @@ public class enemyai : MonoBehaviour
         {
             hittag = hit.transform.tag;
         }
-        if (hittag == "Player")
+        if (hittag == "Player" && isfiring == false)
         {
-            soldier.GetComponent<Animator>().Play("Fire SniperRifle");
-            lookingatplayer = true;
+            StartCoroutine(EnemyFire());
         }
-        else
+        if(hittag != "Player")
         {
             soldier.GetComponent<Animator>().Play("Idle Rifle");
             lookingatplayer = false;
         }
+    }
+
+    IEnumerator EnemyFire()
+    {
+        isfiring = true;
+        soldier.GetComponent<Animator>().Play("Fire SniperRifle", -1,0);
+        soldier.GetComponent<Animator>().Play("Fire SniperRifle");
+        firesound.Play();
+        lookingatplayer = true;
+        yield return new WaitForSeconds(firerate);
+        isfiring = false;
     }
 }
