@@ -37,6 +37,7 @@ public class enemyai : MonoBehaviour
         soldier.GetComponent<Animator>().Play("Fire SniperRifle");
         firesound.Play();
         lookingatplayer = true;
+        HP.hpvalue -= 5;
         yield return new WaitForSeconds(firerate);
         isfiring = false;
     }
