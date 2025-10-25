@@ -23,6 +23,7 @@ public class enemydeath : MonoBehaviour
 
     private void Die()
     {
+        score.AddScore(1);
         enemyDead = true;
 
         if (hurteffect != null)
