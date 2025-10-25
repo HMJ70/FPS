@@ -2828,6 +2828,8 @@ MonoBehaviour:
   noammo: {fileID: 1728599746}
   XCross: {fileID: 1927588721}
   Cross: {fileID: 1088489158}
+  targetdistance: 0
+  damageamount: 5
   Mflash: {fileID: 289921307}
   totarget: 0
 --- !u!4 &990915154
@@ -3404,6 +3406,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100096, guid: a55b75e1bbafd1241b488997bb65464c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1618548275}
+    - targetCorrespondingSourceObject: {fileID: 100096, guid: a55b75e1bbafd1241b488997bb65464c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1618548278}
   m_SourcePrefab: {fileID: 100100000, guid: a55b75e1bbafd1241b488997bb65464c, type: 3}
 --- !u!4 &1097567022 stripped
 Transform:
@@ -3984,6 +3989,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4119909, y: 2.381853, z: 1.11}
   m_Center: {x: -0.00000042711906, y: 1.1907549, z: -0.064487964}
+--- !u!114 &1618548278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618548272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7872e8b61b173f48a7b3bec123f1b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::enemydeath
+  enemyHP: 20
+  hurteffect: {fileID: 97677055}
+  enemyAI: {fileID: 242477564}
+  enemy: {fileID: 1640953503}
 --- !u!1 &1640953503 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100094, guid: a55b75e1bbafd1241b488997bb65464c, type: 3}

@@ -11,6 +11,9 @@ public class Gunshot : MonoBehaviour
     [SerializeField] GameObject XCross;
     [SerializeField] GameObject Cross;
 
+    public float targetdistance;
+    public int damageamount = 5;
+
     public GameObject Mflash;
     public float totarget;
 
@@ -36,10 +39,18 @@ public class Gunshot : MonoBehaviour
 
     IEnumerator Shoot()
     {
+        RaycastHit shoot;
         gunshot.Play();
         XCross.SetActive(true);
         Cross.SetActive(false);
         Ammo.M9Ammo -= 1;
+
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out shoot, 100f))
+        {
+            //Debug.Log("Hit: " + shoot.transform.name);
+            targetdistance = shoot.distance;
+            shoot.transform.SendMessage("DamageEnemy", damageamount, SendMessageOptions.DontRequireReceiver);
+        }
 
         totarget = PlayerCast.targetdistance;
         
