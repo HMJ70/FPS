@@ -14,6 +14,7 @@ public class PlayerCast : MonoBehaviour
             totarget = hit.distance;
             targetdistance = hit.distance;
         }
+        Debug.DrawRay(transform.position, transform.forward * 5f, Color.red);
 
     }
 }
