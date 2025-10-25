@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class HP : MonoBehaviour
 {
     public GameObject hpdisplay;
@@ -12,6 +13,10 @@ public class HP : MonoBehaviour
     }
     void Update()
     {
+        if(hpvalue <= 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
         internalhp = hpvalue;
         hpdisplay.GetComponent<TextMeshProUGUI>().text = "" + hpvalue;
     }

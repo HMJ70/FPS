@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class enemyai : MonoBehaviour
 {
     public string hittag;
@@ -10,6 +11,9 @@ public class enemyai : MonoBehaviour
     public AudioSource firesound;
     public bool isfiring = false;
     public float firerate = 0.5f;
+    public int gothurt;
+    public AudioSource[] hurtsound;
+    public GameObject hurteffect;
     void Update()
     {
         RaycastHit hit; 
@@ -38,6 +42,11 @@ public class enemyai : MonoBehaviour
         firesound.Play();
         lookingatplayer = true;
         HP.hpvalue -= 5;
+        hurteffect.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        hurteffect.SetActive(false);
+        gothurt = Random.Range(0, 3);
+        hurtsound[gothurt].Play();
         yield return new WaitForSeconds(firerate);
         isfiring = false;
     }
