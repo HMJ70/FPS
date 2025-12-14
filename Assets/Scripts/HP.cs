@@ -16,6 +16,9 @@ public class HP : MonoBehaviour
         if(hpvalue <= 0)
         {
             SceneManager.LoadScene("GameOver");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
         }
         internalhp = hpvalue;
         hpdisplay.GetComponent<TextMeshProUGUI>().text = "" + hpvalue;

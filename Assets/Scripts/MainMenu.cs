@@ -5,6 +5,9 @@ public class MainMenu : MonoBehaviour
     public void play()
     {
         SceneManager.LoadScene("SampleScene");
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
 
     public void quit()
@@ -12,4 +15,10 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    
 }
