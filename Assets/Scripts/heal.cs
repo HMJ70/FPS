@@ -9,13 +9,13 @@ public class heal : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (HP.hpvalue >= 91)
+        if (HP.hpvalue >= 76)
         {
             HP.hpvalue = 100;
         }
         else
         {
-            HP.hpvalue += 10;
+            HP.hpvalue += 25;
         }
         collectSound.Play();
         GetComponent<BoxCollider>().enabled = false;
